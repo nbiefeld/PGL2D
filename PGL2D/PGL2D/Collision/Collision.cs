@@ -6,6 +6,12 @@ namespace PGL2D.Collision
 {
     public static class Collision
     {
+        /// <summary>
+        /// Checks to see if two entities have collided based on their rectangles
+        /// </summary>
+        /// <param name="a">The first entity to check</param>
+        /// <param name="b">The second entity to check</param>
+        /// <returns>True of two objects are collided based on their rectangles</returns>
         public static bool RectangleCollision(MoveableEntity a, MoveableEntity b)
         {
             return RectangularCollision(a.Rectangle, b.Rectangle);
