@@ -17,11 +17,25 @@ namespace PGL2D.Collision
             return RectangularCollision(a.Rectangle, b.Rectangle);
         }
 
+        /// <summary>
+        /// Checks to see if one rectangle intersects another rectangle
+        /// </summary>
+        /// <param name="a">The first rectangle to check</param>
+        /// <param name="b">The second rectangle to check</param>
+        /// <returns>True if both rectangles intersect</returns>
         public static bool RectangularCollision(Rectangle a, Rectangle b)
         {
             return a.Intersects(b);
         }
 
+        /// <summary>
+        /// Determines if a rectangle collision has occurred between two entities and provides a normal
+        /// based off where the collision occurred
+        /// </summary>
+        /// <param name="a">The first entity to check</param>
+        /// <param name="b">The second entity to check</param>
+        /// <param name="normal">The collision normal based off the collision point, or Vector2.Zero if no collision</param>
+        /// <returns>True if there is a rectangle collision between two entities</returns>
         public static bool RectangularCollision(MoveableEntity a, MoveableEntity b, out Vector2 normal)
         {
             normal = Vector2.Zero;

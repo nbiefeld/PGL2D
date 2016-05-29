@@ -4,6 +4,14 @@ namespace PGL2D.Collision
 {
     public static class RectangleCollisionPointEx
     {
+        /// <summary>
+        /// Used to combine two rectangle collision points together.
+        /// 
+        /// Example: Top and Right would be combined to TopRight
+        /// </summary>
+        /// <param name="source">The original rectangle collision point</param>
+        /// <param name="target">The secondary rectangle collision point to combine with the original</param>
+        /// <returns>The combined rectangle collision point or none if they cannot be combined</returns>
         public static RectangleCollisionPoint Combine(this RectangleCollisionPoint source,
             RectangleCollisionPoint target)
         {
@@ -32,6 +40,11 @@ namespace PGL2D.Collision
             return RectangleCollisionPoint.None;
         }
 
+        /// <summary>
+        /// Used to get the normal from a vector
+        /// </summary>
+        /// <param name="delta">The rectangle to use to calculate the normal</param>
+        /// <returns>The normal of the provided vector</returns>
         public static Vector2 GetCornerNormal(Vector2 delta)
         {
             var n = delta;
@@ -40,6 +53,12 @@ namespace PGL2D.Collision
             return n;
         }
 
+        /// <summary>
+        /// Gets a normal vector based off of a rectangle collision point
+        /// </summary>
+        /// <param name="point">The rectangle collision point of where this collision occurred</param>
+        /// <param name="inside">Value indicating if the collision occured while inside the rectangle (defaulted to false)</param>
+        /// <returns>The normal vector of the collision</returns>
         public static Vector2 GetNormal(this RectangleCollisionPoint point, bool inside = false)
         {
             switch (point)
@@ -65,8 +84,15 @@ namespace PGL2D.Collision
             }
         }
 
+        /// <summary>
+        /// Determines the rectangle collision side from the collision point
+        /// </summary>
+        /// <param name="source">The rectangle collision point</param>
+        /// <returns>The side of the rectangle collision</returns>
         public static RectangleCollisionSide GetCollisionSide(this RectangleCollisionPoint source)
         {
+            //TODO:  Change to return an array for beta release
+
             switch (source)
             {
                 case RectangleCollisionPoint.BottomLeftCorner:
